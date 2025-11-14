@@ -4,7 +4,7 @@
   # website title
   title = "My New Hugo Site"
   # site description
-  description = "This is My New Hugo Site"
+  description = "Hexify"
   # site keywords
   keywords = ["Theme", "Hugo"]
   #  site default theme ("light", "dark", "black", "auto")
