@@ -45,12 +45,7 @@ main() {
   rm "node-v${NODE_VERSION}-linux-x64.tar.xz"
   export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
-  # Verify installations
-  echo "Verifying installations..."
-  echo Dart Sass: "$(sass --version)"
-  echo Go: "$(go version)"
-  echo Hugo: "$(hugo version)"
-  echo Node.js: "$(node --version)"
+
 
   # Configure Git
   echo "Configuring Git..."
@@ -62,7 +57,7 @@ main() {
     # clone theme
     echo "Cloning theme..."
     git submodule update --init --recursive
-    
+
   # Build the site
   echo "Building the site..."
   hugo --gc --minify
