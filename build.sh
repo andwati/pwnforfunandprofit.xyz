@@ -59,6 +59,10 @@ main() {
     git fetch --unshallow
   fi
 
+    # clone theme
+    echo "Cloning theme..."
+    git submodule update --init --recursive
+    
   # Build the site
   echo "Building the site..."
   hugo --gc --minify
