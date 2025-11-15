@@ -1,16 +1,65 @@
-baseURL = "http://example.org/"
-# [en, zh-cn, fr, ...] determines default content language
+baseURL = "https://pwnforfunandprofit.xyz"
 defaultContentLanguage = "en"
 # language code
 languageCode = "en"
-title = "My New Hugo Site"
+title = "pwnforfunandprofit"
+description = "A blog about pwn for fun and profit"
+
+theme = "DoIt"
+
+
+keywords = ["reverse engineering", "pwn"]
+defaultTheme = "auto"
+
+enablePWA = true
+
+cacheRemoteImages = true
+optimizeImages = true
+
 
 # Change the default theme to be use when building the site with Hugo
-theme = "DoIt"
 
 [params]
 # DoIt theme version
-version = "0.2.X"
+version = "0.4.X"
+
+[params.author]
+name = "mockingspectre"
+
+[params.search]
+enable = true
+# type of search engine ("algolia", "fuse")
+type = "fuse"
+# max index length of the chunked content
+contentLength = 4000
+# placeholder of the search bar
+placeholder = ""
+# DoIt NEW | 0.2.1 max number of results length
+maxResultLength = 10
+# DoIt NEW | 0.2.3 snippet length of the result
+snippetLength = 30
+# DoIt NEW | 0.2.1 HTML tag name of the highlight part in results
+highlightTag = "em"
+# DoIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
+absoluteURL = false
+
+[params.search.fuse]
+# DoIt NEW | 0.2.12 https://fusejs.io/api/options.html
+isCaseSensitive = false
+minMatchCharLength = 2
+findAllMatches = false
+location = 0
+threshold = 0.3
+distance = 100
+ignoreLocation = false
+useExtendedSearch = false
+ignoreFieldNorm = false
+[params.image]
+# cache remote images for better optimisations
+cacheRemote = true
+# Image resizing and optimisation
+optimise = true
+
 
 [menu]
 [[menu.main]]
@@ -47,3 +96,107 @@ weight = 3
 [markup.highlight]
 # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
 noClasses = false
+codeFences = true
+guessSyntax = true
+lineNos = true
+
+[markup.goldmark]
+[markup.goldmark.extensions]
+definitionList = true
+footnote = true
+linkify = true
+strikethrough = true
+table = true
+taskList = true
+typographer = true
+[markup.goldmark.renderer]
+# whether to use HTML tags directly in the document
+unsafe = true
+# Table Of Contents settings
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 6
+
+[params.analytics]
+enable = false
+
+[params.analytics.cloudflare]
+token = ""
+
+[params.verification]
+google = ""
+bing = ""
+yandex = ""
+pinterest = ""
+baidu = ""
+so = ""        # 360 search
+sogou = ""
+
+[params.sponsor]
+enable = false
+bio = "If you find this post helpful, please consider sponsoring."
+link = "https://www.buymeacoffee.com"
+
+[params.footer]
+enable = true
+# DoIt NEW | 0.2.0 Custom content (HTML format is supported)
+custom = ''
+# DoIt NEW | 0.2.0 whether to show Hugo and theme info
+hugo = false
+# DoIt NEW | 0.2.14 Hosted on (HTML format is supported)
+# DoIt NEW | 0.2.0 whether to show copyright info
+copyright = true
+# DoIt NEW | 0.2.0 whether to show the author
+author = true
+# Site creation time
+since = 2025 # The link to your sponsor page
+
+[params.social]
+GitHub = "xxxx"
+Linkedin = ""
+Twitter = "xxxx"
+
+[params.page.comment]
+enable = true
+
+[params.page.comment.utterances]
+enable = true
+# owner/repo
+repo = "andwati/pwnforfunandprofit.xyz"
+issueTerm = "pathname"
+label = ""
+lightTheme = "github-light"
+darkTheme = "github-dark"
+
+
+# Options to make output .md files
+[mediaTypes]
+[mediaTypes."text/plain"]
+suffixes = ["md"]
+[outputFormats.MarkDown]
+mediaType = "text/plain"
+isPlainText = true
+isHTML = false
+
+[Permalinks]
+posts = ":year/:month/:contentbasename"
+
+[sitemap]
+changefreq = "weekly"
+filename = "sitemap.xml"
+priority = 0.5
+
+
+# Options to make hugo output files
+[outputs]
+# DoIt CHANGED | 0.2.0
+home = ["HTML", "RSS", "JSON"]
+page = ["HTML", "MarkDown"]
+section = ["HTML", "RSS"]
+taxonomy = ["HTML", "RSS"]
+
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"
+series = "series"
