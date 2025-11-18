@@ -5,7 +5,7 @@ BIND ?= 127.0.0.1
 BASEURL ?= http://localhost:$(PORT)
 
 # Development flags: include drafts, enable live reload, faster feedback
-HUGOFLAGS ?= -D --navigateToChanged --disableFastRender
+HUGOFLAGS ?= -D  --disableFastRender
 SERVEFLAGS ?= server --bind $(BIND) --port $(PORT) --baseURL $(BASEURL) $(HUGOFLAGS)
 
 .PHONY: help dev serve build preview clean new

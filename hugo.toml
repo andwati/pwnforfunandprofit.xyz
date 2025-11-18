@@ -15,7 +15,7 @@ enablePWA = true
 
 cacheRemoteImages = true
 optimizeImages = true
-
+summaryLength = 0
 
 # Change the default theme to be use when building the site with Hugo
 
