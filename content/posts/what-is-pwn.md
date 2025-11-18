@@ -6,7 +6,7 @@ lastmod: 2025-09-03
 draft: false
 description: "What Is Pwn"
 
-tags: []
+tags: ["rev", "pwn"]
 categories: []
 series: []
 
