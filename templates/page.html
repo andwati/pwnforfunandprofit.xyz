@@ -16,8 +16,6 @@
     }
   }
   </script>
-
-  <!-- Optional features from README -->
   {% if page.extra.math %}
   <link rel="stylesheet" href="{{ get_url(path="css/katex/katex.min.css") }}">
   <script defer src="{{ get_url(path="js/katex/katex.min.js") }}"></script>
@@ -68,6 +66,23 @@
     <div class="post-body">
         {{ page.content | safe }}
     </div>
+
+    {% if page.lower or page.higher %}
+    <nav class="post-nav" aria-label="Post navigation">
+        {% if page.higher %}
+        <a class="post-nav-link post-nav-next hover-scale" href="{{ page.higher.permalink }}">
+            <span class="post-nav-label">&larr; Next</span>
+            <span class="post-nav-title">{{ page.higher.title }}</span>
+        </a>
+        {% endif %}
+        {% if page.lower %}
+        <a class="post-nav-link post-nav-prev hover-scale" href="{{ page.lower.permalink }}">
+            <span class="post-nav-label">Prev &rarr;</span>
+            <span class="post-nav-title">{{ page.lower.title }}</span>
+        </a>
+        {% endif %}
+    </nav>
+    {% endif %}
 
     <footer class="post-footer">
         <div class="post-tags">

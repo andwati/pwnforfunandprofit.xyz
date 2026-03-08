@@ -1,30 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
+
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    };
     
     // Check local storage for theme preference
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        if (currentTheme === 'light') {
-            htmlElement.classList.remove('dark');
-        }
+    if (currentTheme === 'dark' || currentTheme === 'light') {
+        applyTheme(currentTheme);
     } else {
         // Fallback to system preference
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        if (!prefersDarkScheme.matches) {
-            htmlElement.classList.remove('dark');
-        }
+        applyTheme(prefersDarkScheme.matches ? 'dark' : 'light');
     }
 
     // Toggle theme on click
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            let theme = 'light';
-            if (htmlElement.classList.contains('dark')) {
-                theme = 'dark';
-            }
-        localStorage.setItem('theme', theme);
+            const nextTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+            applyTheme(nextTheme);
         });
     }
 
