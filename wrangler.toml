@@ -1,5 +1,9 @@
 name = "pwnforfunandprofit"
 compatibility_date = "2026-03-26"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
 
 [build]
 command = "./build.sh"
