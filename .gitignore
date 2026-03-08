@@ -1,8 +1,2 @@
-/public
-
-# wrangler files
-.wrangler
-.dev.vars*
-!.dev.vars.example
-.env*
-!.env.example
+public
+node_modules

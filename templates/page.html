@@ -43,46 +43,13 @@
         </div>
     </header>
 
-    {% if page.toc %}
-    <details class="post-toc">
-        <summary>Table of Contents</summary>
-        <ul>
-        {% for h1 in page.toc %}
-            <li>
-                <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-                {% if h1.children %}
-                    <ul>
-                        {% for h2 in h1.children %}
-                            <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </li>
-        {% endfor %}
-        </ul>
-    </details>
-    {% endif %}
+    {% include "partials/toc.html" %}
 
     <div class="post-body">
         {{ page.content | safe }}
     </div>
 
-    {% if page.lower or page.higher %}
-    <nav class="post-nav" aria-label="Post navigation">
-        {% if page.higher %}
-        <a class="post-nav-link post-nav-next hover-scale" href="{{ page.higher.permalink }}">
-            <span class="post-nav-label">&larr; Next</span>
-            <span class="post-nav-title">{{ page.higher.title }}</span>
-        </a>
-        {% endif %}
-        {% if page.lower %}
-        <a class="post-nav-link post-nav-prev hover-scale" href="{{ page.lower.permalink }}">
-            <span class="post-nav-label">Prev &rarr;</span>
-            <span class="post-nav-title">{{ page.lower.title }}</span>
-        </a>
-        {% endif %}
-    </nav>
-    {% endif %}
+    {% include "partials/post-nav.html" %}
 
     <footer class="post-footer">
         <div class="post-tags">
@@ -94,17 +61,7 @@
         </div>
         
         <!-- Utterances comments (posts only) -->
-        {% if page.path is starting_with("posts/") %}
-        <div class="comments" id="comments" style="margin-top: 4rem;">
-            <script src="https://utteranc.es/client.js"
-                    repo="andwati/pwnforfunandprofit.xyz"
-                    issue-term="pathname"
-                    theme="github-dark"
-                    crossorigin="anonymous"
-                    async>
-            </script>
-        </div>
-        {% endif %}
+        {% include "partials/comments.html" %}
     </footer>
 </article>
 {% endblock content %}
