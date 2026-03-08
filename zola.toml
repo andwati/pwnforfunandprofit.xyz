@@ -2,7 +2,7 @@ base_url = "https://pwnforfunandprofit.xyz"
 title = "Pwn For Fun And Profit"
 description = "Hacking the Narrative, One Byte at a Time."
 compile_sass = true
-build_search_index = true
+build_search_index = false
 taxonomies = [ {name = "tags"} ]
 generate_feeds = true
 feed_filenames = ["rss.xml"]
@@ -49,6 +49,6 @@ name = "Archive"
 url = "@/archive/_index.md"
 
 # Features
-enable_search = true
+enable_search = false
 enable_theme_toggle = true
 show_rss_link = true
