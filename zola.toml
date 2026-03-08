@@ -1,0 +1,14 @@
+base_url = "https://pwnforfunandprofit.xyz"
+title = "Pwn For Fun And Profit"
+description = "Hacking the Narrative, One Byte at a Time."
+compile_sass = true
+build_search_index = true
+taxonomies = [ {name = "tags"} ]
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]
+google_analytics = ""
+google_site_verification = ""
+author = "mockingspectre"

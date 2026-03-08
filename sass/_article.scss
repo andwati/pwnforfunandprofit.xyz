@@ -1,0 +1,143 @@
+// Post Detail
+.post-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 4rem;
+}
+
+.post-header {
+  margin-bottom: 4rem;
+}
+
+.post-title {
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.post-toc {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  
+  summary {
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none; /* Hide default arrow */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    &::before {
+      content: "↓";
+      color: var(--accent-color);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &[open] summary::before {
+    transform: rotate(180deg);
+  }
+
+  ul {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    list-style-type: none;
+    padding-left: 1rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  a {
+    color: var(--text-muted);
+    font-size: 0.95em;
+    &:hover { color: var(--accent-color); }
+  }
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 4rem;
+  
+  .tag {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+  }
+}
+
+.post-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.post-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  text-align: center;
+  max-width: 34ch;
+}
+
+.post-nav-label {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.post-nav-title {
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.post-nav-link:hover .post-nav-title,
+.post-nav-link:hover .post-nav-label {
+  color: var(--accent-color);
+}
+
+@media (max-width: 640px) {
+  .post-nav-title {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .post-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .post-nav-next {
+    justify-self: start;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .post-nav-prev {
+    justify-self: end;
+    align-items: flex-end;
+    text-align: right;
+  }
+}

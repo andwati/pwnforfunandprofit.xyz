@@ -1,0 +1,56 @@
+// Typography Scale (Fluid)
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5em;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+h1 { font-size: clamp(1.75rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(1.35rem, 3vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.8rem); margin-top: 1.5em; }
+
+p, ul, ol, figure, blockquote {
+  margin-bottom: 1.5rem;
+}
+
+p {
+  max-width: 65ch; // Optimal reading width
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+pre {
+  padding: 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid var(--border-color);
+  background: #1e1e2e;
+  // Scrollbars visible on desktop, hidden on mobile
+  @media (max-width: 640px) {
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+    font-size: 0.82em;
+  }
+}
+
+code {
+  background: var(--surface-color);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  color: var(--accent-color);
+  border: 1px solid var(--border-color);
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
