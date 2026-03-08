@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+
+{% block head %}
+  <!-- SEO Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "datePublished": "{{ page.date }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ config.extra.author | default(value="Author") }}"
+    }
+  }
+  </script>
+
+  <!-- Optional features from README -->
+  {% if page.extra.math %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+      onload="renderMathInElement(document.body);"></script>
+  {% endif %}
+
+  {% if page.extra.mermaid %}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  </script>
+  {% endif %}
+
+{% endblock head %}
+
+{% block content %}
+<article class="post-detail">
+    <header class="post-header">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-meta">
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time>
+        </div>
+    </header>
+
+    {% if page.toc %}
+    <details class="post-toc">
+        <summary>Table of Contents</summary>
+        <ul>
+        {% for h1 in page.toc %}
+            <li>
+                <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+                {% if h1.children %}
+                    <ul>
+                        {% for h2 in h1.children %}
+                            <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </details>
+    {% endif %}
+
+    <div class="post-body">
+        {{ page.content | safe }}
+    </div>
+
+    <footer class="post-footer">
+        <div class="post-tags">
+            {% if page.taxonomies.tags %}
+                {% for tag in page.taxonomies.tags %}
+                    <span class="tag">#{{ tag }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+        
+        <!-- Utterances comments -->
+        <div class="comments" id="comments">
+            <script src="https://utteranc.es/client.js"
+                    repo="mockingspectre/pwnforfunandprofit"
+                    issue-term="pathname"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </footer>
+</article>
+{% endblock content %}

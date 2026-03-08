@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Tag: {{ term.name }} | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Posts tagged #{{ term.name }}</h1>
+    </div>
+</div>
+
+<div class="post-feed">
+    {% for page in term.pages %}
+    <article class="feed-item hover-scale">
+        <a href="{{ page.permalink }}" class="item-link">
+            <time datetime="{{ page.date }}" class="item-date">{{ page.date | date(format="%B %e, %Y") }}</time>
+            <h2 class="item-title">{{ page.title }}</h2>
+        </a>
+    </article>
+    {% endfor %}
+</div>
+{% endblock content %}

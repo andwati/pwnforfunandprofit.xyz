@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title typeit-element">Hacking the Narrative, One Byte at a Time.</h1>
+        <p class="hero-subtitle">Exploring binary exploitation, reverse engineering, and offensive security.</p>
+    </div>
+</div>
+
+<div class="post-feed">
+    {% for page in paginator.pages %}
+    <article class="feed-item hover-scale">
+        <a href="{{ page.permalink }}" class="item-link">
+            <time datetime="{{ page.date }}" class="item-date">{{ page.date | date(format="%b %d, %Y") }}</time>
+            <h2 class="item-title">{{ page.title }}</h2>
+            {% if page.description %}
+            <p class="item-desc">{{ page.description }}</p>
+            {% endif %}
+        </a>
+    </article>
+    {% endfor %}
+</div>
+
+{% if paginator.pages|length > 0 %}
+<nav class="pagination">
+    {% if paginator.previous %}
+        <a class="pagination-prev hover-scale" href="{{ paginator.previous }}">← Newer</a>
+    {% endif %}
+    {% if paginator.next %}
+        <a class="pagination-next hover-scale" href="{{ paginator.next }}">Older →</a>
+    {% endif %}
+</nav>
+{% endif %}
+{% endblock content %}
