@@ -58,9 +58,11 @@ Control the homepage profile section:
 
 ```toml
 show_profile = true  # Show/hide entire profile section
-avatar_url = "https://github.com/andwati.png"
+avatar_url = "/images/avatar.webp"  # Local or remote URL
 profile_subtitle = "offending binaries"
 ```
+
+Place avatar images in `static/images/` to use local assets.
 
 ### Social Links
 

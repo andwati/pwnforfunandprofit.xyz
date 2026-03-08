@@ -18,7 +18,7 @@ author = "mockingspectre"
 
 # Profile Section (Homepage)
 show_profile = true
-avatar_url = "https://github.com/andwati.png"
+avatar_url = "/images/avatar.webp"
 profile_subtitle = "offending binaries"
 
 # Social Links
