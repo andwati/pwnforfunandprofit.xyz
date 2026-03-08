@@ -6,22 +6,12 @@
 ## Performance and SEO
 - [ ] Optimized for performance: 99/100 on mobile and 100/100 on desktop in Google PageSpeed Insights
 - [ ] Optimized SEO performance with a correct SEO SCHEMA based on JSON-LD
-- [x] Google Analytics supported
-- [ ] Search engine verification supported (Google, Bind, Yandex and Baidu)
-- [ ] CDN for third-party libraries supported
-
 
 ## Appearance and Layout
-- [ ] Responsive layout
-- [ ] Light/Dark mode
-- [ ] Globally consistent design language
 - [ ] Pagination supported
 - [ ] Easy-to-use and self-expanding table of contents
 - [ ] Beautiful CSS animation
 - [ ] social links supported
-- [x] share sites supported
-- [ ] Utterances comment system supported by Utterances
-
 
 ## Extended Features
 - [ ] Search support
