@@ -27,22 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', theme);
         });
     }
-
-    // TypeIt effect for Hero Title (if present)
-    // We achieve a simple typing effect native JS so we don't need a heavy library, but since features requested it,
-    // we can implement a simulated TypeIt or load the library. For performance, we do a native CSS/JS combo.
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.innerText;
-        heroTitle.innerText = '';
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50 + Math.random() * 50); // Organic typing speed
-            }
-        };
-        setTimeout(typeWriter, 500); // Intro delay
-    }
 });
