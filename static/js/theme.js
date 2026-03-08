@@ -24,7 +24,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (htmlElement.classList.contains('dark')) {
                 theme = 'dark';
             }
-            localStorage.setItem('theme', theme);
+        localStorage.setItem('theme', theme);
+        });
+    }
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close nav when a link is clicked
+        navLinks.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 });

@@ -19,15 +19,15 @@
 
   <!-- Optional features from README -->
   {% if page.extra.math %}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+  <link rel="stylesheet" href="{{ get_url(path="css/katex/katex.min.css") }}">
+  <script defer src="{{ get_url(path="js/katex/katex.min.js") }}"></script>
+  <script defer src="{{ get_url(path="js/katex/auto-render.min.js") }}"
       onload="renderMathInElement(document.body);"></script>
   {% endif %}
 
   {% if page.extra.mermaid %}
   <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    import mermaid from '{{ get_url(path="js/mermaid.min.js") }}';
     mermaid.initialize({ startOnLoad: true, theme: 'dark' });
   </script>
   {% endif %}
@@ -78,16 +78,18 @@
             {% endif %}
         </div>
         
-        <!-- Utterances comments -->
-        <div class="comments" id="comments">
+        <!-- Utterances comments (posts only) -->
+        {% if page.path is starting_with("posts/") %}
+        <div class="comments" id="comments" style="margin-top: 4rem;">
             <script src="https://utteranc.es/client.js"
-                    repo="andwati/pwnforfunandprofit"
+                    repo="andwati/pwnforfunandprofit.xyz"
                     issue-term="pathname"
                     theme="github-dark"
                     crossorigin="anonymous"
                     async>
             </script>
         </div>
+        {% endif %}
     </footer>
 </article>
 {% endblock content %}

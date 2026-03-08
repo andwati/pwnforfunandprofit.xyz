@@ -19,13 +19,11 @@
 - [ ] Easy-to-use and self-expanding table of contents
 - [ ] Beautiful CSS animation
 - [ ] Brand new Page Layout optimized for wide screens
-- [ ] Compatibility for PWA
 - [ ] Social and Comment Systems
 
 - [ ] Local Avatar supported
 - [ ] social links supported
 - [ ] share sites supported
-
 - [ ] Utterances comment system supported by Utterances
 
 
@@ -34,15 +32,9 @@
 - [ ] Twemoji supported
 - [ ] Automatically highlighting code
 - [ ] Copy code to clipboard with one click
-- [ ] Extended Markdown syntax for Font Awesome icons
-- [ ] Extended Markdown syntax for fraction
 - [ ] Mathematical formula supported by KaTeX
 - [ ] Diagrams shortcode supported by mermaid
 - [ ] Interactive data visualization shortcode supported by ECharts
-- [ ] Mapbox shortcode supported by Mapbox GL JS
-
-
-- [ ] Animated typing supported by TypeIt
 - [ ] Dynamic scroll supported by native CSS
 - [ ] Cookie consent banner supported by cookieconsent
 - [ ] Option to cache remote images
