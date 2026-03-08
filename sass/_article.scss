@@ -93,6 +93,7 @@
 
 .social-share {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
 
@@ -126,7 +127,6 @@
       &.reddit { background: #ff4500; }
       &.hackernews { background: #ff6600; }
       &.email { background: #6b7280; }
-      &.copy-link { background: var(--accent-color); }
     }
   }
 }
