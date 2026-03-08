@@ -6,6 +6,7 @@ build_search_index = false
 taxonomies = [ {name = "tags"} ]
 generate_feeds = true
 feed_filenames = ["rss.xml"]
+generate_robots_txt = true
 
 [markdown.highlighting]
 theme = "catppuccin-mocha"
