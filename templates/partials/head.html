@@ -1,0 +1,52 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{{ config.title }}{% endblock title %}</title>
+<meta name="description" content="{{ config.description | default(value="Binary exploitation, reverse engineering, and offensive security blog.") }}">
+
+<script>
+    (function() {
+        try {
+            var storedTheme = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var shouldUseDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+
+            if (shouldUseDark) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        } catch (e) {
+            document.documentElement.classList.add('dark');
+        }
+    })();
+</script>
+
+<!-- SEO Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "{{ config.base_url }}",
+  "name": "{{ config.title }}"
+}
+</script>
+
+{% if config.extra.google_analytics %}
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ config.extra.google_analytics }}');
+</script>
+{% endif %}
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+<link rel="stylesheet" href="{{ get_url(path="css/syntax.css") }}">
+
+<!-- Fonts (self-hosted) -->
+<link rel="stylesheet" href="{{ get_url(path="css/fonts.css") }}">
+
+{% block head %}{% endblock head %}

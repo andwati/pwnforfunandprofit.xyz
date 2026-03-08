@@ -9,6 +9,44 @@ taxonomies = [ {name = "tags"} ]
 theme = "catppuccin-mocha"
 
 [extra]
+# Analytics
 google_analytics = ""
 google_site_verification = ""
+
+# Author Information
 author = "mockingspectre"
+
+# Profile Section (Homepage)
+show_profile = true
+avatar_url = "https://github.com/andwati.png"
+profile_subtitle = "offending binaries"
+
+# Social Links
+github_url = "https://github.com/mockingspectre"
+twitter_url = "https://twitter.com/mockinspectre"
+linkedin_url = ""
+email = ""
+
+# Comments (Utterances)
+enable_comments = true
+utterances_repo = "andwati/pwnforfunandprofit.xyz"
+utterances_theme = "github-dark"
+
+# Navigation Menu
+[[extra.menu]]
+name = "About"
+url = "/about/"
+[[extra.menu]]
+name = "Posts"
+url = "/posts"
+[[extra.menu]]
+name = "Tags"
+url = "/tags/"
+[[extra.menu]]
+name = "Archive"
+url = "@/archive/_index.md"
+
+# Features
+enable_search = true
+enable_theme_toggle = true
+show_rss_link = true
