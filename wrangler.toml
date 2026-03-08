@@ -1,5 +1,5 @@
 name = "pwnforfunandprofit"
-compatibility_date = "2026-01-22"
+compatibility_date = "2026-03-26"
 
 [build]
 command = "./build.sh"
