@@ -18,12 +18,8 @@
 - [ ] Pagination supported
 - [ ] Easy-to-use and self-expanding table of contents
 - [ ] Beautiful CSS animation
-- [ ] Brand new Page Layout optimized for wide screens
-- [ ] Social and Comment Systems
-
-- [ ] Local Avatar supported
 - [ ] social links supported
-- [ ] share sites supported
+- [x] share sites supported
 - [ ] Utterances comment system supported by Utterances
 
 
