@@ -52,12 +52,15 @@
     {% include "partials/post-nav.html" %}
 
     <footer class="post-footer">
-        <div class="post-tags">
-            {% if page.taxonomies.tags %}
-                {% for tag in page.taxonomies.tags %}
-                    <span class="tag">#{{ tag }}</span>
-                {% endfor %}
-            {% endif %}
+        <div class="post-tags-share">
+            <div class="post-tags">
+                {% if page.taxonomies.tags %}
+                    {% for tag in page.taxonomies.tags %}
+                        <span class="tag">#{{ tag }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% include "partials/social-share.html" %}
         </div>
         
         <!-- Utterances comments (posts only) -->

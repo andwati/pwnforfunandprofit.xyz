@@ -63,10 +63,23 @@
   }
 }
 
+.post-tags-share {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+  
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 .post-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 4rem;
   
   .tag {
     background: var(--surface-color);
@@ -75,6 +88,46 @@
     border-radius: 99px;
     font-size: 0.85rem;
     font-family: var(--font-mono);
+  }
+}
+
+.social-share {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .share-label {
+    font-weight: 500;
+    color: var(--text-color);
+    margin-right: 0.25rem;
+  }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--bg-color);
+      transform: translateY(-2px);
+      border-color: transparent;
+      
+      &.x { background: #000000; color: #ffffff; }
+      &.bluesky { background: #0285FF; }
+      &.linkedin { background: #0077b5; }
+      &.reddit { background: #ff4500; }
+      &.hackernews { background: #ff6600; }
+      &.email { background: #6b7280; }
+      &.copy-link { background: var(--accent-color); }
+    }
   }
 }
 
