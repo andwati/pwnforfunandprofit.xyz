@@ -6,7 +6,7 @@
 ## Performance and SEO
 - [ ] Optimized for performance: 99/100 on mobile and 100/100 on desktop in Google PageSpeed Insights
 - [ ] Optimized SEO performance with a correct SEO SCHEMA based on JSON-LD
-- [ ] Google Analytics supported
+- [x] Google Analytics supported
 - [ ] Search engine verification supported (Google, Bind, Yandex and Baidu)
 - [ ] CDN for third-party libraries supported
 
