@@ -1,0 +1,49 @@
+// Post Feed
+.post-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.feed-item {
+  display: block;
+}
+
+.item-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.item-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  transition: color 0.2s ease;
+}
+
+.item-link:hover .item-title {
+  color: var(--accent-color);
+}
+
+.item-desc {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
