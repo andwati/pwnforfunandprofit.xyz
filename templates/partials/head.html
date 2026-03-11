@@ -67,8 +67,9 @@
       "name": "{{ config.extra.author | default(value="mockingspectre") }}",
       "url": "{{ config.base_url }}/about/",
       "sameAs": [
-        {% if config.extra.github_url %}"{{ config.extra.github_url }}"{% if config.extra.twitter_url %},{% endif %}{% endif %}
-        {% if config.extra.twitter_url %}"{{ config.extra.twitter_url }}"{% endif %}
+        {% if config.extra.github_url %}"{{ config.extra.github_url }}"{% if config.extra.twitter_url or config.extra.youtube_url %},{% endif %}{% endif %}
+        {% if config.extra.twitter_url %}"{{ config.extra.twitter_url }}"{% if config.extra.youtube_url %},{% endif %}{% endif %}
+        {% if config.extra.youtube_url %}"{{ config.extra.youtube_url }}"{% endif %}
       ]
     }
   ]

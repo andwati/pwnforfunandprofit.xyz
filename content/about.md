@@ -10,3 +10,5 @@ Welcome to **pwnforfunandprofit**, your home for all things binary exploitation,
 In a world increasingly built on code, understanding its vulnerabilities is not just a niche skill; it's a superpower. Here, we're not just reading about exploits; we're _crafting_ them. We're not just looking at binaries; we're _disassembling_ them. And we're not just talking about offensive security; we're _doing_ it.
 
 My mission is simple yet ambitious: to transform the daunting landscapes of low-level security into accessible, engaging, and ultimately, empowering knowledge. Whether you're aiming to land that dream cybersecurity role, dominate CTF leaderboards, uncover critical bugs, or satisfy a deep intellectual curiosity, I'm here to guide you.
+
+You can also find video versions of my teardowns and explorations on my **[YouTube Channel](https://www.youtube.com/@pwnforfunandprofit)**.
