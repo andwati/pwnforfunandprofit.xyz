@@ -5,8 +5,12 @@ compile_sass = true
 build_search_index = false
 taxonomies = [{ name = "tags" }]
 generate_feeds = true
-feed_filenames = ["rss.xml"]
+feed_filenames = ["rss.xml", "feed.json"]
 generate_robots_txt = true
+
+[markdown]
+external_links_target_blank = true
+external_links_no_referrer = true
 
 [markdown.highlighting]
 theme = "catppuccin-mocha"
