@@ -17,7 +17,15 @@
   }
 }
 
-html.dark .sun-icon { display: block; }
-html.dark .moon-icon { display: none; }
-html:not(.dark) .sun-icon { display: none; }
-html:not(.dark) .moon-icon { display: block; }
+html.dark .sun-icon {
+  display: block;
+}
+html.dark .moon-icon {
+  display: none;
+}
+html:not(.dark) .sun-icon {
+  display: none;
+}
+html:not(.dark) .moon-icon {
+  display: block;
+}

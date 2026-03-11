@@ -3,7 +3,7 @@ title = "Pwn For Fun And Profit"
 description = "Hacking the Narrative, One Byte at a Time."
 compile_sass = true
 build_search_index = false
-taxonomies = [ {name = "tags"} ]
+taxonomies = [{ name = "tags" }]
 generate_feeds = true
 feed_filenames = ["rss.xml"]
 generate_robots_txt = true

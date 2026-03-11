@@ -1,0 +1,11 @@
+# Ignore Zola compiled output and dependencies
+public/
+node_modules/
+
+# Ignore Zola HTML templates (Tera syntax breaks standard HTML parsing)
+templates/**/*.html
+
+# Ignore minified static files
+static/**/*.min.js
+static/**/*.min.css
+static/js/cookieconsent.umd.js

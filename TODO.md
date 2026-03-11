@@ -56,11 +56,11 @@ Feature backlog for the blog. Check off items as they're implemented.
 
 ## Developer Experience
 
-- [ ] **Prettier / markdownlint** — add linting for content files to enforce consistent front-matter and formatting
-- [ ] **`zola check` in CI** — GitHub Actions job that runs `zola check` on every PR to catch broken internal links
-- [ ] **Automated post slug validation** — pre-commit hook to enforce kebab-case filenames and required front-matter fields
+- [x] **Prettier / markdownlint** — add linting for content files to enforce consistent front-matter and formatting
+- [x] **`zola check` in CI** — GitHub Actions job that runs `zola check` on every PR to catch broken internal links
+- [x] **Automated post slug validation** — pre-commit hook to enforce kebab-case filenames and required front-matter fields
 - [ ] **Cloudflare Pages preview deployments** — auto-deploy PR branches to a `*.pages.dev` preview URL for review
-- [ ] **Content spell-check in CI** — run `cspell` or `vale` on markdown files in the GitHub Actions pipeline
+- [x] **Content spell-check in CI** — run `cspell` or `vale` on markdown files in the GitHub Actions pipeline
 
 ---
 
@@ -74,4 +74,4 @@ Feature backlog for the blog. Check off items as they're implemented.
 
 ---
 
-*Last updated: 2026-03-11*
+_Last updated: 2026-03-11_

@@ -55,7 +55,7 @@
   padding: 1.5rem;
   border-radius: 12px;
   margin-bottom: 3rem;
-  
+
   summary {
     font-weight: 600;
     cursor: pointer;
@@ -63,9 +63,9 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    
+
     &::before {
-      content: "↓";
+      content: '↓';
       color: var(--accent-color);
       transition: transform 0.2s ease;
     }
@@ -81,15 +81,17 @@
     list-style-type: none;
     padding-left: 1rem;
   }
-  
+
   li {
     margin-bottom: 0.5rem;
   }
-  
+
   a {
     color: var(--text-muted);
     font-size: 0.95em;
-    &:hover { color: var(--accent-color); }
+    &:hover {
+      color: var(--accent-color);
+    }
   }
 }
 
@@ -98,7 +100,7 @@
   flex-direction: column;
   gap: 2rem;
   margin-top: 4rem;
-  
+
   @media (min-width: 640px) {
     flex-direction: row;
     justify-content: space-between;
@@ -110,7 +112,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  
+
   .tag {
     background: var(--surface-color);
     border: 1px solid var(--border-color);
@@ -150,13 +152,26 @@
       color: var(--bg-color);
       transform: translateY(-2px);
       border-color: transparent;
-      
-      &.x { background: #000000; color: #ffffff; }
-      &.bluesky { background: #0285FF; }
-      &.linkedin { background: #0077b5; }
-      &.reddit { background: #ff4500; }
-      &.hackernews { background: #ff6600; }
-      &.email { background: #6b7280; }
+
+      &.x {
+        background: #000000;
+        color: #ffffff;
+      }
+      &.bluesky {
+        background: #0285ff;
+      }
+      &.linkedin {
+        background: #0077b5;
+      }
+      &.reddit {
+        background: #ff4500;
+      }
+      &.hackernews {
+        background: #ff6600;
+      }
+      &.email {
+        background: #6b7280;
+      }
     }
   }
 }

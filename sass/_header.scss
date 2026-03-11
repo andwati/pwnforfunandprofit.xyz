@@ -41,7 +41,9 @@
   justify-content: center;
   border-radius: 50%;
   transition: var(--transition-smooth);
-  &:hover { color: var(--accent-color); }
+  &:hover {
+    color: var(--accent-color);
+  }
 }
 
 // Hamburger button — hidden on desktop, shown on mobile
@@ -54,12 +56,18 @@
   padding: 0.25rem;
   align-items: center;
   justify-content: center;
-  
-  .close-icon { display: none; }
-  
-  &[aria-expanded="true"] {
-    .hamburger-icon { display: none; }
-    .close-icon { display: block; }
+
+  .close-icon {
+    display: none;
+  }
+
+  &[aria-expanded='true'] {
+    .hamburger-icon {
+      display: none;
+    }
+    .close-icon {
+      display: block;
+    }
   }
 }
 
@@ -69,12 +77,12 @@
   }
 
   // Hide the site name when the menu is open
-  .nav-container:has(#nav-toggle[aria-expanded="true"]) .brand-link {
+  .nav-container:has(#nav-toggle[aria-expanded='true']) .brand-link {
     display: none;
   }
 
   // Make nav-right fill the full width so menu items span the container
-  .nav-container:has(#nav-toggle[aria-expanded="true"]) .nav-right {
+  .nav-container:has(#nav-toggle[aria-expanded='true']) .nav-right {
     width: 100%;
   }
 
@@ -103,7 +111,9 @@
       padding: 0.75rem 0;
       font-size: 1rem;
       border-bottom: 1px solid var(--border-color);
-      &::after { display: none; }
+      &::after {
+        display: none;
+      }
     }
   }
 }
