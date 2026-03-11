@@ -14,9 +14,39 @@
 }
 
 .post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
   color: var(--text-muted);
   font-size: 0.9rem;
   font-style: italic;
+}
+
+.post-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.post-meta-label {
+  font-style: normal;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.post-meta-sep {
+  color: var(--border-color);
+  font-style: normal;
+  user-select: none;
+}
+
+.post-meta-updated time {
+  color: var(--text-muted);
 }
 
 .post-toc {

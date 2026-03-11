@@ -1,1 +1,1 @@
-- [ ] Cookie consent banner supported by cookieconsent
+# pwnforfunandprofit

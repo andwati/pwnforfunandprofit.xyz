@@ -42,90 +42,92 @@
 {% endblock head %}
 
 {% block content %}
-<div class="hero" style="padding-bottom: 2rem;">
-    <div class="hero-content">
-        <h1 class="hero-title">Posts</h1>
-        <p class="hero-subtitle">Exploring binary exploitation, reverse engineering, and offensive security.</p>
+<div class="feed-page">
+    <div class="hero" style="padding-bottom: 2rem;">
+        <div class="hero-content">
+            <h1 class="hero-title">Posts</h1>
+            <p class="hero-subtitle">Exploring binary exploitation, reverse engineering, and offensive security.</p>
+        </div>
     </div>
-</div>
 
-<div class="post-feed">
-    {% for page in paginator.pages %}
-    <article class="feed-item hover-scale">
-        <a href="{{ page.permalink }}" class="item-link">
-            <time datetime="{{ page.date }}" class="item-date">{{ page.date | date(format="%b %d, %Y") }}</time>
-            <h2 class="item-title">{{ page.title }}</h2>
-            {% if page.description %}
-            <p class="item-desc">{{ page.description }}</p>
-            {% endif %}
-        </a>
-    </article>
-    {% endfor %}
-</div>
-
-{% if paginator.number_pagers > 1 %}
-<nav class="pagination" aria-label="Posts pagination">
-    {# ← Previous #}
-    {% if paginator.previous %}
-        <a class="pagination-arrow" href="{{ paginator.previous }}" aria-label="Previous page">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </a>
-    {% else %}
-        <span class="pagination-arrow is-disabled" aria-disabled="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </span>
-    {% endif %}
-
-    {# Page numbers with smart windowing #}
-    <div class="pagination-pages">
-        {% set cur = paginator.current_index %}
-        {% set total = paginator.number_pagers %}
-
-        {% for i in range(start=1, end=total+1) %}
-            {% set show = false %}
-            {# Always show first and last #}
-            {% if i == 1 or i == total %}{% set show = true %}{% endif %}
-            {# Show window of 2 around current #}
-            {% if i >= cur - 2 and i <= cur + 2 %}{% set show = true %}{% endif %}
-
-            {% if show %}
-                {# Show ellipsis before this page if there's a gap #}
-                {% if i > 1 and i > cur - 2 and i != 2 %}
-                    {# We need gap indicator — output ellipsis if prev shown page was not adjacent #}
-                    {% if i == cur - 2 and cur - 3 > 1 %}
-                        <span class="pagination-ellipsis">…</span>
-                    {% elif i == total and cur + 2 < total - 1 %}
-                        <span class="pagination-ellipsis">…</span>
-                    {% endif %}
+    <div class="post-feed">
+        {% for page in paginator.pages %}
+        <article class="feed-item hover-scale">
+            <a href="{{ page.permalink }}" class="item-link">
+                <time datetime="{{ page.date }}" class="item-date">{{ page.date | date(format="%b %d, %Y") }}</time>
+                <h2 class="item-title">{{ page.title }}</h2>
+                {% if page.description %}
+                <p class="item-desc">{{ page.description }}</p>
                 {% endif %}
-
-                {% if i == cur %}
-                    <span class="pagination-num is-current" aria-current="page">{{ i }}</span>
-                {% else %}
-                    {% if i == 1 %}
-                        <a class="pagination-num" href="{{ paginator.first }}" aria-label="Page {{ i }}">{{ i }}</a>
-                    {% elif i == total %}
-                        <a class="pagination-num" href="{{ paginator.last }}" aria-label="Page {{ i }}">{{ i }}</a>
-                    {% else %}
-                        <a class="pagination-num" href="{{ paginator.first }}page/{{ i }}/" aria-label="Page {{ i }}">{{ i }}</a>
-                    {% endif %}
-                {% endif %}
-            {% endif %}
+            </a>
+        </article>
         {% endfor %}
     </div>
 
-    {# Next → #}
-    {% if paginator.next %}
-        <a class="pagination-arrow" href="{{ paginator.next }}" aria-label="Next page">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </a>
-    {% else %}
-        <span class="pagination-arrow is-disabled" aria-disabled="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </span>
-    {% endif %}
-</nav>
+    {% if paginator.number_pagers > 1 %}
+    <nav class="pagination" aria-label="Posts pagination">
+        {# ← Previous #}
+        {% if paginator.previous %}
+            <a class="pagination-arrow" href="{{ paginator.previous }}" aria-label="Previous page">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </a>
+        {% else %}
+            <span class="pagination-arrow is-disabled" aria-disabled="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </span>
+        {% endif %}
 
-<p class="pagination-meta">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</p>
-{% endif %}
+        {# Page numbers with smart windowing #}
+        <div class="pagination-pages">
+            {% set cur = paginator.current_index %}
+            {% set total = paginator.number_pagers %}
+
+            {% for i in range(start=1, end=total+1) %}
+                {% set show = false %}
+                {# Always show first and last #}
+                {% if i == 1 or i == total %}{% set show = true %}{% endif %}
+                {# Show window of 2 around current #}
+                {% if i >= cur - 2 and i <= cur + 2 %}{% set show = true %}{% endif %}
+
+                {% if show %}
+                    {# Show ellipsis before this page if there's a gap #}
+                    {% if i > 1 and i > cur - 2 and i != 2 %}
+                        {# We need gap indicator — output ellipsis if prev shown page was not adjacent #}
+                        {% if i == cur - 2 and cur - 3 > 1 %}
+                            <span class="pagination-ellipsis">…</span>
+                        {% elif i == total and cur + 2 < total - 1 %}
+                            <span class="pagination-ellipsis">…</span>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if i == cur %}
+                        <span class="pagination-num is-current" aria-current="page">{{ i }}</span>
+                    {% else %}
+                        {% if i == 1 %}
+                            <a class="pagination-num" href="{{ paginator.first }}" aria-label="Page {{ i }}">{{ i }}</a>
+                        {% elif i == total %}
+                            <a class="pagination-num" href="{{ paginator.last }}" aria-label="Page {{ i }}">{{ i }}</a>
+                        {% else %}
+                            <a class="pagination-num" href="{{ paginator.first }}page/{{ i }}/" aria-label="Page {{ i }}">{{ i }}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {# Next → #}
+        {% if paginator.next %}
+            <a class="pagination-arrow" href="{{ paginator.next }}" aria-label="Next page">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+        {% else %}
+            <span class="pagination-arrow is-disabled" aria-disabled="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+        {% endif %}
+    </nav>
+
+    <p class="pagination-meta">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</p>
+    {% endif %}
+</div>
 {% endblock content %}

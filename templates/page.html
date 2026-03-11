@@ -88,7 +88,17 @@
         <h1 class="post-title">{{ page.title }}</h1>
         <div class="post-meta">
             {% if page.date %}
-            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time>
+            <span class="post-meta-item">
+                <span class="post-meta-label">Posted</span>
+                <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time>
+            </span>
+            {% endif %}
+            {% if page.updated and page.updated != page.date %}
+            <span class="post-meta-sep" aria-hidden="true">·</span>
+            <span class="post-meta-item post-meta-updated">
+                <span class="post-meta-label">Updated</span>
+                <time datetime="{{ page.updated }}">{{ page.updated | date(format="%B %e, %Y") }}</time>
+            </span>
             {% endif %}
         </div>
     </header>
