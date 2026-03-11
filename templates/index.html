@@ -1,5 +1,39 @@
 {% extends "base.html" %}
 
+{% block canonical %}{{ config.base_url }}/{% endblock canonical %}
+{% block og_url %}{{ config.base_url }}/{% endblock og_url %}
+
+{% block head %}
+<!-- SEO: Blog (Homepage) JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "{{ config.base_url }}/#blog",
+  "name": "{{ config.title }}",
+  "description": "{{ config.description }}",
+  "url": "{{ config.base_url }}/",
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Person",
+    "@id": "{{ config.base_url }}/#author"
+  },
+  "blogPost": [
+    {% set section = get_section(path="posts/_index.md") %}
+    {% for page in section.pages %}
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ page.permalink }}#article",
+      "headline": {{ page.title | json_encode }},
+      "url": "{{ page.permalink }}"
+      {% if page.date %},"datePublished": "{{ page.date | date(format="%+") }}"{% endif %}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock head %}
+
 {% block content %}
 {% include "partials/profile.html" %}
 
@@ -10,3 +44,4 @@
     {% endfor %}
 </div>
 {% endblock content %}
+

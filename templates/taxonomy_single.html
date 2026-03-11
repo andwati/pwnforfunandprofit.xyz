@@ -1,6 +1,41 @@
 {% extends "base.html" %}
 
 {% block title %}Tag: {{ term.name }} | {{ config.title }}{% endblock title %}
+{% block description %}Posts tagged "{{ term.name }}" on {{ config.title }}{% endblock description %}
+{% block canonical %}{{ term.permalink }}{% endblock canonical %}
+{% block og_title %}Tag: {{ term.name }} | {{ config.title }}{% endblock og_title %}
+{% block og_description %}Posts tagged "{{ term.name }}" on {{ config.title }}{% endblock og_description %}
+{% block og_url %}{{ term.permalink }}{% endblock og_url %}
+
+{% block head %}
+<!-- SEO: Tag CollectionPage JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ term.permalink }}#collection",
+  "name": "Posts tagged \"{{ term.name }}\" | {{ config.title }}",
+  "description": "Posts tagged \"{{ term.name }}\" on {{ config.title }}",
+  "url": "{{ term.permalink }}",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ config.base_url }}/#website"
+  },
+  "hasPart": [
+    {% for page in term.pages %}
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ page.permalink }}#article",
+      "headline": {{ page.title | json_encode }},
+      "url": "{{ page.permalink }}"
+      {% if page.date %},"datePublished": "{{ page.date | date(format="%+") }}"{% endif %}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock head %}
 
 {% block content %}
 <div class="post-detail">

@@ -25,10 +25,10 @@ avatar_url = "/images/avatar.webp"
 profile_subtitle = "offending binaries"
 
 # Social Links
-github_url = "https://github.com/mockingspectre"
-twitter_url = "https://twitter.com/mockinspectre"
+github_url = "https://github.com/andwati"
+twitter_url = "https://twitter.com/andwati_"
 linkedin_url = ""
-email = ""
+email = "andwatiian@gmail.com"
 
 # Comments (Utterances)
 enable_comments = true

@@ -39,11 +39,98 @@
   color: var(--text-muted);
 }
 
+// ──────────────────────────────────────────
 // Pagination
+// ──────────────────────────────────────────
 .pagination {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   margin-top: 5rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+}
+
+.pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+// Shared base for arrows + numbers
+.pagination-arrow,
+.pagination-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-1px);
+  }
+}
+
+// Active / current page
+.pagination-num.is-current {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  font-weight: 600;
+  cursor: default;
+  pointer-events: none;
+
+  &:hover {
+    transform: none;
+  }
+}
+
+// Disabled arrow (no prev/next page)
+.pagination-arrow.is-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+
+  &:hover {
+    border-color: var(--border-color);
+    color: var(--text-muted);
+    transform: none;
+  }
+}
+
+// Ellipsis gap marker
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+// "Page N of M" helper text
+.pagination-meta {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
 }

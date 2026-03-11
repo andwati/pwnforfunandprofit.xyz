@@ -1,7 +1,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-<meta name="description" content="{{ config.description | default(value="Binary exploitation, reverse engineering, and offensive security blog.") }}">
+<meta name="description" content="{% block description %}{{ config.description | default(value="Binary exploitation, reverse engineering, and offensive security blog.") }}{% endblock description %}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{% block canonical %}{{ config.base_url }}{% endblock canonical %}">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}">
+<meta property="og:description" content="{% block og_description %}{{ config.description | default(value="Binary exploitation, reverse engineering, and offensive security blog.") }}{% endblock og_description %}">
+<meta property="og:url" content="{% block og_url %}{{ config.base_url }}{% endblock og_url %}">
+<meta property="og:type" content="{% block og_type %}website{% endblock og_type %}">
+<meta property="og:locale" content="en_US">
+{% block og_extra %}{% endblock og_extra %}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@andwati">
+<meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock twitter_title %}">
+<meta name="twitter:description" content="{% block twitter_description %}{{ config.description | default(value="Binary exploitation, reverse engineering, and offensive security blog.") }}{% endblock twitter_description %}">
+{% block twitter_extra %}{% endblock twitter_extra %}
 
 <script>
     (function() {
@@ -21,13 +40,38 @@
     })();
 </script>
 
-<!-- SEO Schema JSON-LD -->
+<!-- SEO: WebSite + Person JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": "{{ config.base_url }}",
-  "name": "{{ config.title }}"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ config.base_url }}/#website",
+      "url": "{{ config.base_url }}/",
+      "name": "{{ config.title }}",
+      "description": "{{ config.description }}",
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ config.base_url }}/posts?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ config.base_url }}/#author",
+      "name": "{{ config.extra.author | default(value="mockingspectre") }}",
+      "url": "{{ config.base_url }}/about/",
+      "sameAs": [
+        {% if config.extra.github_url %}"{{ config.extra.github_url }}"{% if config.extra.twitter_url %},{% endif %}{% endif %}
+        {% if config.extra.twitter_url %}"{{ config.extra.twitter_url }}"{% endif %}
+      ]
+    }
+  ]
 }
 </script>
 
@@ -48,5 +92,8 @@
 
 <!-- Fonts (self-hosted) -->
 <link rel="stylesheet" href="{{ get_url(path="css/fonts.css") }}">
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="{{ config.title }} RSS Feed" href="{{ get_url(path="rss.xml") }}">
 
 {% block head %}{% endblock head %}
