@@ -33,11 +33,6 @@ Feature backlog for the blog. Check off items as they're implemented.
 
 ## UI / UX Polish
 
-- [x] **Scroll-to-top button** — floating button that appears after scrolling down, smooth-scrolls back to top
-- [ ] **Table of contents active-section highlight** — as you scroll, the current heading is highlighted in the TOC
-- [ ] **Terminal-style command palette** — `Ctrl+K` opens a fuzzy-search palette over posts and nav links
-- [ ] **Animated hero terminal prompt** — typewriter effect on the homepage subtitle / profile section
-- [ ] **Back-to-top keyboard shortcut** — pressing `G` then `G` (vim-style) scrolls to the top of the page
 - [ ] **Smooth page transitions** — CSS View Transitions API for navigation between pages
 - [ ] **Footnote hover previews** — hover over a footnote ref to see its content in a tooltip without jumping to the bottom
 
