@@ -2,11 +2,15 @@ base_url = "https://pwnforfunandprofit.xyz"
 title = "Pwn For Fun And Profit"
 description = "Hacking the Narrative, One Byte at a Time."
 compile_sass = true
-build_search_index = false
-taxonomies = [ {name = "tags"} ]
+build_search_index = true
+taxonomies = [{ name = "tags" }]
 generate_feeds = true
-feed_filenames = ["rss.xml"]
+feed_filenames = ["rss.xml", "feed.json"]
 generate_robots_txt = true
+
+[markdown]
+external_links_target_blank = true
+external_links_no_referrer = true
 
 [markdown.highlighting]
 theme = "catppuccin-mocha"
@@ -25,10 +29,11 @@ avatar_url = "/images/avatar.webp"
 profile_subtitle = "offending binaries"
 
 # Social Links
-github_url = "https://github.com/mockingspectre"
-twitter_url = "https://twitter.com/mockinspectre"
+github_url = "https://github.com/andwati"
+twitter_url = "https://twitter.com/andwati_"
+youtube_url = "https://www.youtube.com/@pwnforfunandprofit"
 linkedin_url = ""
-email = ""
+email = "andwatiian@gmail.com"
 
 # Comments (Utterances)
 enable_comments = true
@@ -50,6 +55,6 @@ name = "Archive"
 url = "@/archive/_index.md"
 
 # Features
-enable_search = false
+enable_search = true
 enable_theme_toggle = true
 show_rss_link = true

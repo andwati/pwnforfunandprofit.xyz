@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Zola
+        uses: snok/install-zola@v2
+      
+      - name: Run Zola Check
+        run: zola check
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+          
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+          
+      - name: Format Check 
+        run: pnpm run format:check
+
+      - name: Markdown Lint
+        run: pnpm run lint
+
+      - name: Spell Check
+        run: npx cspell "content/**/*.md"

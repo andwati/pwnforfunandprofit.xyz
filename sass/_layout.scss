@@ -11,7 +11,11 @@
 }
 
 // Constrain all media & tables to their container
-img, video, iframe, table, svg {
+img,
+video,
+iframe,
+table,
+svg {
   max-width: 100%;
 }
 
@@ -20,7 +24,9 @@ table {
   overflow-x: auto;
   @media (max-width: 640px) {
     scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
