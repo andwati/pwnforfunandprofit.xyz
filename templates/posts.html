@@ -55,9 +55,15 @@ block content %}
     {% for page in paginator.pages %}
     <article class="feed-item hover-scale">
       <a href="{{ page.permalink }}" class="item-link">
-        <time datetime="{{ page.date }}" class="item-date"
-          >{{ page.date | date(format="%b %d, %Y") }}</time
-        >
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+          <time datetime="{{ page.date }}" class="item-date"
+            >{{ page.date | date(format="%b %d, %Y") }}</time
+          >
+          {% if page.reading_time %}
+          <span style="color: var(--text-muted); font-size: 0.85rem; opacity: 0.6;">&middot;</span>
+          <span style="color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono);">&sim;{{ page.reading_time }} min read</span>
+          {% endif %}
+        </div>
         <h2 class="item-title">{{ page.title }}</h2>
         {% if page.description %}
         <p class="item-desc">{{ page.description }}</p>

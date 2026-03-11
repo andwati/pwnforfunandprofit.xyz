@@ -18,6 +18,10 @@
     "
   >
     <span>{{ page.date | date(format="%Y-%m-%d") }}</span>
+    {% if page.reading_time %}
+    <span style="opacity: 0.5;">&middot;</span>
+    <span>{{ page.reading_time }} min read</span>
+    {% endif %}
   </div>
 
   <div

@@ -28,8 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = code.innerText;
 
       try {
-        // Wait for the clipboard API
-        await navigator.clipboard.writeText(text);
+        if (navigator.clipboard && window.isSecureContext) {
+          // Modern Async Clipboard API
+          await navigator.clipboard.writeText(text);
+        } else {
+          // Fallback for insecure contexts (like local network IPs via HTTP)
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+
+          // Move outside the screen to make it invisible
+          textArea.style.position = 'absolute';
+          textArea.style.left = '-999999px';
+
+          document.body.appendChild(textArea);
+          textArea.select();
+
+          document.execCommand('copy');
+          textArea.remove();
+        }
 
         // Add visual feedback
         button.innerHTML = checkIcon;
