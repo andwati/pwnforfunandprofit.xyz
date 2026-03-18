@@ -24,6 +24,15 @@ h3 {
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   margin-top: 1.5em;
 }
+h4 {
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+}
+h5 {
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+}
+h6 {
+  font-size: clamp(0.9rem, 1vw, 1rem);
+}
 
 p,
 ul,
