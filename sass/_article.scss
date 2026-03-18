@@ -95,6 +95,98 @@
   }
 }
 
+// ──────────────────────────────────────────
+// Series Navigation Box
+// ──────────────────────────────────────────
+.series-nav {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.series-nav-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.series-nav-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.series-nav-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--heading-color, var(--text-color));
+  flex: 1;
+}
+
+.series-nav-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 99px;
+  padding: 0.1em 0.6em;
+  white-space: nowrap;
+}
+
+.series-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.series-nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+
+  &.is-current {
+    .series-nav-index {
+      color: var(--accent-color);
+    }
+    .series-nav-label {
+      color: var(--text-color);
+      font-weight: 600;
+    }
+  }
+}
+
+.series-nav-index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  opacity: 0.6;
+  flex-shrink: 0;
+  width: 1.5ch;
+  text-align: right;
+}
+
+.series-nav-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
 .post-toc {
   background: var(--surface-color);
   border: 1px solid var(--border-color);

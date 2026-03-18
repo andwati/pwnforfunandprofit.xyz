@@ -16,135 +16,17 @@
       <span class="term-titlebar-label">bash — pwnbox</span>
     </div>
 
-    <div class="term-body" id="term-body">
-      <!-- lines injected by JS -->
+    <div class="term-body" id="term-body"
+      data-link-home="{{ get_url(path="") }}"
+      data-link-posts="{{ get_url(path="/posts") }}"
+      data-link-tags="{{ get_url(path="/tags") }}">
+      <!-- lines injected by 404.js -->
     </div>
 
   </div>
 </div>
-
-<script>
-(function () {
-  var body = document.getElementById('term-body');
-  var path = window.location.pathname;
-
-  var steps = [
-    {
-      type: 'cmd',
-      text: 'cd ' + path
-    },
-    {
-      type: 'out-error',
-      text: 'bash: cd: ' + path + ': No such file or directory'
-    },
-    {
-      type: 'cmd',
-      text: 'whoami'
-    },
-    {
-      type: 'out',
-      text: 'l0st_r3ader'
-    },
-    {
-      type: 'cmd',
-      text: 'ls ~/recovery/'
-    },
-    {
-      type: 'ls'
-    }
-  ];
-
-  var links = [
-    { href: '{{ get_url(path="") }}',      label: '~/home' },
-    { href: '{{ get_url(path="/posts") }}', label: '~/posts' },
-    { href: '{{ get_url(path="/tags") }}',  label: '~/tags' }
-  ];
-
-  var CHAR_DELAY = 28;
-  var LINE_DELAY = 180;
-
-  function ps1() {
-    var s = document.createElement('span');
-    s.className = 'term-ps1';
-    s.textContent = 'user@blackout:~$ ';
-    return s;
-  }
-
-  function appendCmdLine(text, callback) {
-    var row = document.createElement('div');
-    row.className = 'term-row';
-    row.appendChild(ps1());
-    var input = document.createElement('span');
-    input.className = 'term-input';
-    row.appendChild(input);
-    body.appendChild(row);
-
-    var i = 0;
-    function tick() {
-      if (i < text.length) {
-        input.textContent += text[i++];
-        setTimeout(tick, CHAR_DELAY);
-      } else {
-        setTimeout(callback, LINE_DELAY);
-      }
-    }
-    tick();
-  }
-
-  function appendOut(text, extraClass, callback) {
-    var div = document.createElement('div');
-    div.className = 'term-out' + (extraClass ? ' ' + extraClass : '');
-    div.textContent = text;
-    body.appendChild(div);
-    setTimeout(callback, LINE_DELAY);
-  }
-
-  function appendLs(callback) {
-    var div = document.createElement('div');
-    div.className = 'term-out-ls';
-    links.forEach(function (l) {
-      var a = document.createElement('a');
-      a.href = l.href;
-      a.textContent = l.label;
-      div.appendChild(a);
-    });
-    body.appendChild(div);
-    setTimeout(callback, LINE_DELAY);
-  }
-
-  function appendCursor() {
-    var row = document.createElement('div');
-    row.className = 'term-row';
-    row.appendChild(ps1());
-    var cur = document.createElement('span');
-    cur.className = 'term-cursor';
-    cur.setAttribute('aria-hidden', 'true');
-    row.appendChild(cur);
-    body.appendChild(row);
-  }
-
-  function runSteps(i) {
-    if (i >= steps.length) {
-      appendCursor();
-      return;
-    }
-    var step = steps[i];
-    var next = function () { runSteps(i + 1); };
-
-    if (step.type === 'cmd') {
-      appendCmdLine(step.text, next);
-    } else if (step.type === 'out-error') {
-      appendOut(step.text, 'term-out-error', next);
-    } else if (step.type === 'out') {
-      appendOut(step.text, 'term-out-muted', next);
-    } else if (step.type === 'ls') {
-      appendLs(next);
-    } else {
-      next();
-    }
-  }
-
-  runSteps(0);
-})();
-</script>
 {% endblock content %}
+
+{% block scripts %}
+<script defer src="{{ get_url(path="js/404.js") }}"></script>
+{% endblock scripts %}
