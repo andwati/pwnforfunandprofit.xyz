@@ -70,6 +70,31 @@
   color: var(--text-muted);
 }
 
+// Heading anchor links
+.post-body {
+  h2, h3 {
+    position: relative;
+
+    .heading-anchor {
+      display: inline-block;
+      margin-left: 0.5em;
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.75em;
+      opacity: 0;
+      text-decoration: none;
+      vertical-align: middle;
+      transition: opacity 0.15s ease;
+      user-select: none;
+    }
+
+    &:hover .heading-anchor {
+      opacity: 1;
+    }
+  }
+}
+
 .post-toc {
   background: var(--surface-color);
   border: 1px solid var(--border-color);
