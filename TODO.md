@@ -11,7 +11,7 @@
 ## UI / UX Polish
 
 - [ ] **Heading Anchor Links** — Add an interactive `#` link that appears when hovering over `<h2>` and `<h3>` tags to make linking to specific sections easier.
-- [ ] **Custom Terminal Scrollbars** — Style the browser's default scrollbar to match the dark terminal aesthetic using `::-webkit-scrollbar` and `scrollbar-color`.
+- [x] **Custom Terminal Scrollbars** — Style the browser's default scrollbar to match the dark terminal aesthetic using `::-webkit-scrollbar` and `scrollbar-color`.
 
 - [ ] **Custom 404 Page** — Design an interactive terminal-style 404 page ("Command not found") that fits the pwnforfunandprofit theme.
 

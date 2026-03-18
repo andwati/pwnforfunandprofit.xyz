@@ -13,6 +13,10 @@
 
   --transition-spring: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --scrollbar-track: #e5e7eb;
+  --scrollbar-thumb: #9ca3af;
+  --scrollbar-thumb-hover: #10b981;
 }
 
 // Dark Mode Overrides
@@ -23,4 +27,8 @@ html.dark {
   --surface-color: #141414;
   --border-color: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.5);
+
+  --scrollbar-track: #0f0f0f;
+  --scrollbar-thumb: #2a2a2a;
+  --scrollbar-thumb-hover: #10b981;
 }
