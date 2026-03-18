@@ -47,6 +47,59 @@ p {
   text-wrap: pretty;
 }
 
+// Footnotes
+.footnote-reference {
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+
+  a {
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    padding: 0 0.15em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footnote-definition {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  border-left: 2px solid var(--border-color);
+  padding-left: 1rem;
+
+  p {
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.footnote-definition-label {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  color: var(--accent-color);
+  font-size: 0.8em;
+  margin-top: 0.1em;
+}
+
+.footnote-backref {
+  font-family: var(--font-mono);
+  color: var(--accent-color);
+  font-size: 0.9em;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 code,
 pre {
   font-family: var(--font-mono);
