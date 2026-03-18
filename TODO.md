@@ -2,7 +2,7 @@
 
 ## Typography & Reading Experience
 
-- [ ] **Code Font Ligatures** — Integrate a dedicated ligaturized monospace font (like Fira Code or JetBrains Mono) for cleaner code snippets.
+- [x] **Code Font Ligatures** — Integrate a dedicated ligaturized monospace font (like Fira Code or JetBrains Mono) for cleaner code snippets.
 - [x] **Text Wrap Balancing** — Apply `text-wrap: balance` to headings and `text-wrap: pretty` to paragraphs to prevent awkward orphaned words.
 - [ ] **Fluid Typography Scale** — Refactor font sizes to use CSS `clamp()` functions for perfectly smooth scaling across all devices without relying on breakpoints.
 - [ ] **Line Highlighting in Code Blocks** — Implement a custom shortcode or modify the syntax highlighter to allow highlighting specific lines of code (vital for exploit tutorials).
