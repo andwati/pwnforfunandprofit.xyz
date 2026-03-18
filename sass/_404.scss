@@ -1,0 +1,133 @@
+// 404 Terminal Page
+
+.notfound-wrap {
+  min-height: 70dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.term-window {
+  width: 100%;
+  max-width: 680px;
+  background: #0d0d0d;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 1.5vw, 0.9rem);
+}
+
+.term-titlebar {
+  background: #1c1c1c;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #2a2a2a;
+  user-select: none;
+}
+
+.term-dots {
+  display: flex;
+  gap: 0.45rem;
+
+  span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot-red    { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green  { background: #28c840; }
+}
+
+.term-titlebar-label {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #555;
+  letter-spacing: 0.03em;
+}
+
+.term-body {
+  padding: 1.5rem;
+  line-height: 1.65;
+  color: #cdd6f4;
+  min-height: 260px;
+}
+
+.term-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6ch;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.term-ps1 {
+  color: #10b981;
+  flex-shrink: 0;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.term-input {
+  color: #cdd6f4;
+  overflow: hidden;
+}
+
+.term-out {
+  padding-left: 0;
+  margin-bottom: 0.9rem;
+}
+
+.term-out-error {
+  color: #f38ba8;
+}
+
+.term-out-muted {
+  color: #6c7086;
+}
+
+.term-out-ls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 0.9rem;
+
+  a {
+    color: #89b4fa;
+    text-decoration: none;
+    font-weight: 500;
+
+    &::before {
+      content: '→  ';
+      color: #10b981;
+    }
+
+    &:hover {
+      color: #10b981;
+      text-decoration: underline;
+    }
+  }
+}
+
+.term-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  background: #10b981;
+  vertical-align: text-bottom;
+  animation: blink-cursor 1s step-end infinite;
+  margin-left: 0.15ch;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
