@@ -11,6 +11,7 @@ h6 {
   margin-bottom: 0.5em;
   overflow-wrap: break-word;
   word-break: break-word;
+  text-wrap: balance;
 }
 
 h1 {
@@ -34,6 +35,7 @@ blockquote {
 
 p {
   max-width: 65ch; // Optimal reading width
+  text-wrap: pretty;
 }
 
 code,
