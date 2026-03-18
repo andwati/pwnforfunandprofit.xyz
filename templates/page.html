@@ -82,6 +82,11 @@
   <!-- Reading Progress Bar -->
   <script defer src="{{ get_url(path="js/progress.js") }}"></script>
 
+  <!-- Sticky TOC active-section highlighting -->
+  {% if page.toc %}
+  <script defer src="{{ get_url(path="js/toc.js") }}"></script>
+  {% endif %}
+
 {% endblock head %}
 
 
@@ -90,6 +95,7 @@
   <div class="reading-progress-bar" id="reading-progress-bar"></div>
 </div>
 
+<div class="post-layout">
 <article class="post-detail">
     <header class="post-header">
         <h1 class="post-title">{{ page.title }}</h1>
@@ -137,9 +143,12 @@
             </div>
             {% include "partials/social-share.html" %}
         </div>
-        
+
         <!-- Utterances comments (posts only) -->
         {% include "partials/comments.html" %}
     </footer>
 </article>
+
+{% include "partials/toc-sidebar.html" %}
+</div>
 {% endblock content %}

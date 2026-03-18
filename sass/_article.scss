@@ -262,6 +262,110 @@
 }
 
 // ──────────────────────────────────────────
+// Sidebar TOC Layout
+// ──────────────────────────────────────────
+
+.post-layout {
+  display: contents;
+
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: minmax(0, 800px) 240px;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .post-detail {
+    max-width: none;
+    margin: 0;
+  }
+
+  // Hide inline TOC — sidebar takes over
+  .post-toc {
+    display: none !important;
+  }
+}
+
+.post-toc-sidebar {
+  display: none;
+
+  @media (min-width: 1200px) {
+    display: block;
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    padding-top: 4rem; // align with article content start
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+  }
+}
+
+.toc-nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    // Nested level (h2 children)
+    ul {
+      padding-left: 1rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  li {
+    margin-bottom: 0.35rem;
+  }
+
+  a {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0.2rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+
+    &.toc-active {
+      color: var(--accent-color);
+      border-left-color: var(--accent-color);
+    }
+  }
+}
+
+.toc-sidebar-title {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin: 0 0 1rem 0;
+  padding-left: 0.75rem;
+}
+
+// ──────────────────────────────────────────
 // Media Wrappers (YouTube, etc)
 // ──────────────────────────────────────────
 .youtube-wrapper {
