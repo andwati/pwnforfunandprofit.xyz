@@ -60,3 +60,22 @@ url = "@/archive/_index.md"
 enable_search = true
 enable_theme_toggle = true
 show_rss_link = true
+
+# Social meta
+twitter_handle = "@andwati_"
+
+# Homepage
+homepage_post_limit = 3
+view_all_posts_label = "View all posts"
+
+# Related posts
+related_posts_limit = 3
+related_posts_title = "Related Posts"
+
+# Search
+search_placeholder = "Search posts..."
+
+# 404 terminal identity
+terminal_hostname = "pwnbox"
+terminal_prompt_user = "user@blackout"
+terminal_whoami = "l0st_r3ader"

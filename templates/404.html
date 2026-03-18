@@ -13,13 +13,16 @@
         <span class="dot-yellow"></span>
         <span class="dot-green"></span>
       </div>
-      <span class="term-titlebar-label">bash — pwnbox</span>
+      <span class="term-titlebar-label">bash — {{ config.extra.terminal_hostname | default(value="pwnbox") }}</span>
     </div>
 
     <div class="term-body" id="term-body"
       data-link-home="{{ get_url(path="") }}"
       data-link-posts="{{ get_url(path="/posts") }}"
-      data-link-tags="{{ get_url(path="/tags") }}">
+      data-link-tags="{{ get_url(path="/tags") }}"
+      data-prompt="{{ config.extra.terminal_prompt_user | default(value="user@pwnbox") }}"
+      data-hostname="{{ config.extra.terminal_hostname | default(value="pwnbox") }}"
+      data-whoami="{{ config.extra.terminal_whoami | default(value="l0st_r3ader") }}">
       <!-- lines injected by 404.js -->
     </div>
 

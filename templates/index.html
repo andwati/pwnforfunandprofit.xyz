@@ -34,11 +34,12 @@ block og_url %}{{ config.base_url }}/{% endblock og_url %} {% block head %}
   class="post-feed-list"
   style="max-width: 65ch; margin: 0 auto; display: flex; flex-direction: column; gap: 2.5rem"
 >
-  {% set section = get_section(path="posts/_index.md") %} {% for page in section.pages | slice(end=3) %} {% include
-  "partials/post-card.html" %} {% endfor %}
+  {% set section = get_section(path="posts/_index.md") %}
+  {% set post_limit = config.extra.homepage_post_limit | default(value=3) %}
+  {% for page in section.pages | slice(end=post_limit) %} {% include "partials/post-card.html" %} {% endfor %}
 </div>
 
 <div class="view-all-posts">
-  <a href="/posts" class="btn-view-all">View all posts</a>
+  <a href="/posts" class="btn-view-all">{{ config.extra.view_all_posts_label | default(value="View all posts") }}</a>
 </div>
 {% endblock content %}

@@ -4,7 +4,10 @@
   var body = document.getElementById('term-body');
   if (!body) return;
 
-  var path = window.location.pathname;
+  var path     = window.location.pathname;
+  var promptUser = body.dataset.prompt   || 'user@pwnbox';
+  var hostname   = body.dataset.hostname || 'pwnbox';
+  var whoami     = body.dataset.whoami   || 'l0st_r3ader';
 
   var links = [
     { href: body.dataset.linkHome,  label: '~/home'  },
@@ -16,7 +19,7 @@
     { type: 'cmd',       text: 'cd ' + path },
     { type: 'out-error', text: 'bash: cd: ' + path + ': No such file or directory' },
     { type: 'cmd',       text: 'whoami' },
-    { type: 'out',       text: 'l0st_r3ader' },
+    { type: 'out',       text: whoami },
     { type: 'cmd',       text: 'ls ~/recovery/' },
     { type: 'ls' }
   ];
@@ -27,7 +30,7 @@
   function ps1() {
     var s = document.createElement('span');
     s.className = 'term-ps1';
-    s.textContent = 'user@blackout:~$ ';
+    s.textContent = promptUser + '@' + hostname + ':~$ ';
     return s;
   }
 
